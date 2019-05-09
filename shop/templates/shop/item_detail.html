@@ -1,0 +1,36 @@
+{% extends "shop/layout.html" %}
+{% load humanize %}
+
+{% block content %}
+    <div class=card>
+        <div class="card-header">
+    <h2>{{ item.name }} - {{ item.price|intcomma }}원</h2>
+        </div>
+    <div class="card-body">
+   
+    
+
+    {% if item.photo %}
+        <img src="{{ item.photo.url }}"/>
+        <br/>
+    {% else %}
+    {% endif %}
+    
+    
+
+    {% if item.desc %} <!--아이템 설명 --->
+        <p>{{ item.desc }}</p>
+
+    {% else %}
+    {% endif %}
+    </div>
+    
+    <div class="card-footer">
+    <a href="{% url "shop:item_list" %}" class="btn btn-primary">목록</a>
+    <a href="{% url "shop:item_edit" item.pk %}" class="btn btn-primary">수정</a>
+    </div>
+    </div>
+{% endblock content %}
+    
+
+

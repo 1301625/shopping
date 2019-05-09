@@ -1,0 +1,32 @@
+{% extends "shop/layout.html" %}
+{% block content %}
+<div class="mb-3">
+<form action="" method="GET">
+        <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="검색어를 입력하세요"/>
+        
+    </form>
+</div>
+    <table class="table table-hover table-bordered">
+        <tbody>
+            {% for item in item_list %}
+            <tr>
+                <td>
+                <a href="{{ item.get_absolute_url }}">
+                    {{ item.name }}
+                </a></td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.desc }}</td>
+                
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr/>
+
+
+    <a href="{% url 'shop:item_new' %}" class="btn btn-primary">New Item</a>
+{% endblock content %}
+    
+
+
+
